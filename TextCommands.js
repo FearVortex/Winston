@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const config = require('./json/config.json');
 const fs = require('fs');
-const TextCommands = require('./json/commands.json');
+const TextCommands = './json/commands.json';
 
 var CommandHandler = {};
 var commands = [];
