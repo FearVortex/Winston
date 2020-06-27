@@ -51,7 +51,7 @@ CommandHandler.commands = (message) => {
     let args = message.content.slice(PREFIX.length).split(" ");
     switch(args[0]){
         case 'add':
-            if(message.member.roles.cache.find(config.admin_id)){
+            if(message.member.roles.cache.has(config.admin_id)){
                 if(args[1] && args[2]){
                     let newCommand = new TextCommand(args[1], args[2]);
                 } else {
@@ -62,7 +62,7 @@ CommandHandler.commands = (message) => {
             }
             break;
         case 'edit':
-            if(message.member.roles.cache.find(config.admin_id)){
+            if(message.member.roles.cache.has(config.admin_id)){
                 if(args[1] && args[2]){
 
                 }
@@ -73,7 +73,7 @@ CommandHandler.commands = (message) => {
 }
 
 CommandHandler.checkValidity = function(message){
-    if(!message.member.roles.cache.find(config.admin_id)){
+    if(!message.member.roles.cache.has(config.admin_id)){
         if(message.channel.id == config.commands) this.commands(message);
     } else {
         this.commands(message);
