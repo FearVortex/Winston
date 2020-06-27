@@ -4,12 +4,12 @@ const fs = require('fs');
 const TextCommands = './json/commands.json';
 
 var CommandHandler = {};
-var commands = [];
+var commands;
 
 var TextCommand = function(name, output){
     this.name = name.toLowerCase();
     this.output = output;
-    fs.readFileSync(TextCommands, function readFileCallback(err, data){
+    fs.readFile(TextCommands, (err, data) => {
         if(err){
             console.log(err);
         } else {
@@ -17,7 +17,7 @@ var TextCommand = function(name, output){
             for(var i in commands){
                 if(commands[i].name != this.name){
                     commands.push({name: this.name, output: this.output});
-                    let json = commands.stringify(commands);
+                    let json = JSON.stringify(commands);
                     fs.writeFileSync(TextCommands, json);
                     console.log(`${this.name} has been created`);
                 } else {
@@ -29,7 +29,7 @@ var TextCommand = function(name, output){
 }
 
 CommandHandler.editCommand = (command, output) => {
-    fs.readFileSync(TextCommands, function readFileCallback(err, data){
+    fs.readFile(TextCommands, function readFileCallback(err, data){
         if(err){
             console.log(err);
         } else {
