@@ -19,7 +19,7 @@ Winston.on('ready', () => {
 });
 
 Winston.on('message', message => {
-    if(message.content.startsWith('!') && !message.author.bot){
+    if(message.content.startsWith('~') && !message.author.bot){
         CommandHandler.checkValidity(message.channel.id, message.member);
     }
 });
