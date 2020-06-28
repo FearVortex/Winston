@@ -1,7 +1,7 @@
 'use strict';
 const {Client, MessageEmbed} = require('discord.js');
 const client = new Client();
-const token = "NzA0NDg5NTc2Mzk5NjM0NDcy.XvfFBw.0CYCmG2EWqd24XFMaJirFdt1iXE";
+const token = 'ADD THE TOKEN'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
