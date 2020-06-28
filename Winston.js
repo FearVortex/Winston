@@ -16,6 +16,7 @@ source.forEach(file => {
 
 Winston.on('ready', () => {
     console.log('Bot Online!');
+    Winston.user.setActivity("Khan Academy", {type: "Watching"});
 });
 
 Winston.on('message', message => {
